@@ -18,6 +18,7 @@ public class Map {
             {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,},
     };
 
+
     public int getHeight() {
         return model.length;
     }

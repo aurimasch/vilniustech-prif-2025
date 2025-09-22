@@ -22,11 +22,16 @@ public class GameRules {
     }
 
     public void progressFrame() {
-        if (map.isWall(ghost.getNextX(), ghost.getNextY())) {
-            ghost.changeDirection();
-        }
-        ghost.move();
+        int attempts = 0;
 
+        while (attempts < 4 && map.isWall(ghost.getNextX(), ghost.getNextY())) {
+            ghost.changeDirection();
+            attempts++;
+
+        }
+        if(!map.isWall(ghost.getNextX(), ghost.getNextY())) {
+            ghost.move();
+        }
         if (pacman.collidesWith(ghost)) {
             System.out.println("Game Over!");
             System.exit(0);

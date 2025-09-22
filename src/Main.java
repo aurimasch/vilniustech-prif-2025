@@ -1,4 +1,6 @@
 import java.io.IOException;
+import java.util.Scanner;
+
 
 public class Main {
 
@@ -25,11 +27,15 @@ public class Main {
 
     }
 
-    private static Integer getUserInput() throws IOException {
-        int read = System.in.read();
-        if (read == 10)
-            return null;
-        return read;
+    private static Scanner scanner = new Scanner(System.in);
+
+    private static Integer getUserInput() {
+        if (scanner.hasNextLine()) {
+            String line = scanner.nextLine();
+            if (line.length() == 0) return null;
+            return (int) line.charAt(0);
+        }
+        return null;
     }
 
 }

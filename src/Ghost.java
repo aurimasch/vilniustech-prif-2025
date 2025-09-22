@@ -28,16 +28,17 @@ public class Ghost {
     }
 
     public void changeDirection() {
-        if (x == 1 && y == 0) {
+        if (dx == 1 && dy == 0) {
             dx = 0;
             dy = 1;
-        } else if (x == 0 && y == 1) {
+        }
+        else if (dx == 0 && dy == 1) {
             dx = -1;
             dy = 0;
-        } else if (x == -1 && y == 0) {
+        } else if (dx == -1 && dy == 0) {
             dx = 0;
             dy = -1;
-        } else if (x == 0 && y == -1) {
+        } else if (dx == 0 && dy == -1) {
             dx = 1;
             dy =0;
         }
