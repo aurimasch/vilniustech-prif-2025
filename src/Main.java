@@ -30,6 +30,7 @@ public class Main {
     private static Scanner scanner = new Scanner(System.in);
 
     private static Integer getUserInput() {
+
         if (scanner.hasNextLine()) {
             String line = scanner.nextLine();
             if (line.length() == 0) return null;

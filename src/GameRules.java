@@ -27,7 +27,6 @@ public class GameRules {
         while (attempts < 4 && map.isWall(ghost.getNextX(), ghost.getNextY())) {
             ghost.changeDirection();
             attempts++;
-
         }
         if(!map.isWall(ghost.getNextX(), ghost.getNextY())) {
             ghost.move();
