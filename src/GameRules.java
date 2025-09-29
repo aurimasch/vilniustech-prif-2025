@@ -25,14 +25,27 @@ public class GameRules {
 
     public void progressFrame() {
         for (Ghost ghost : ghosts) {
-            // Try to find a valid direction if facing a wall
             int attempts = 0;
-            while (map.isWall(ghost.getNextX(), ghost.getNextY()) && attempts < 4) {
+            boolean found = false;
+            while (attempts < 4) {
+                boolean pathClear = true;
+                int moveDist = ghost.getMoveDistance();
+                for (int step = 1; step <= moveDist; step++) {
+                    int nextX = ghost.getX() + ghost.dx * step;
+                    int nextY = ghost.getY() + ghost.dy * step;
+                    if (map.isWall(nextX, nextY)) {
+                        pathClear = false;
+                        break;
+                    }
+                }
+                if (pathClear) {
+                    found = true;
+                    break;
+                }
                 ghost.changeDirection();
                 attempts++;
             }
-            // Only move if the next cell is not a wall
-            if (!map.isWall(ghost.getNextX(), ghost.getNextY())) {
+            if (found) {
                 ghost.move();
             }
 
@@ -41,6 +54,5 @@ public class GameRules {
                 System.exit(0);
             }
         }
-
     }
 }

@@ -11,5 +11,9 @@ public class SimpleGhost extends Ghost {
         dy = -temp;
     }
 
-
+    @Override
+    public void move() {
+        x += dx;
+        y += dy;
+    }
 }

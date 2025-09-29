@@ -29,8 +29,11 @@ public abstract class Ghost {
 
     public abstract void changeDirection();
 
-    public void move() {
-        x += dx;
-        y += dy;
+    public abstract void move();
+
+    public int getMoveDistance() {
+        return 1;
     }
+
+
 }

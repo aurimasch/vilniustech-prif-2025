@@ -26,4 +26,15 @@ public class SmartGhost extends Ghost {
                 break;
         }
     }
+
+    @Override
+    public void move() {
+        x += dx*2;
+        y += dy*2;
+    }
+
+    @Override
+    public int getMoveDistance() {
+        return 2;
+    }
 }
