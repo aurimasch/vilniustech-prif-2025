@@ -4,7 +4,7 @@ import java.util.List;
 public class Main {
 
     Pacman pacman = new Pacman(1, 1);
-    List<Ghost> ghosts = List.of(new SimpleGhost(10, 10), new SmartGhost(11, 11));
+    List<Ghost> ghosts = List.of(new SimpleGhost(10, 10), new SmartGhost(11, 11), new StaticGhost(5, 5));
     Map map = new Map();
 
     GameRules gameRules = new GameRules(map, ghosts, pacman);

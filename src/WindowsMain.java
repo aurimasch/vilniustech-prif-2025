@@ -10,7 +10,7 @@ import java.util.List;
 public class WindowsMain extends JFrame {
 
     private Map map = new Map();
-    static List<Ghost> ghosts = List.of(new SimpleGhost(10, 10), new SmartGhost(11, 11));
+    static List<Ghost> ghosts = List.of(new SimpleGhost(10, 10), new SmartGhost(11, 11), new StaticGhost(5, 5));
     private Pacman pacman = new Pacman(1, 1);
 
     private GameRules gameRules = new GameRules(map, ghosts, pacman);
