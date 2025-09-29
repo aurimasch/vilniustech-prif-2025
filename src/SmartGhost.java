@@ -2,8 +2,8 @@ import java.util.Random;
 
 public class SmartGhost extends Ghost {
 
-    public SmartGhost(int x, int y) {
-        super(x, y);
+    public SmartGhost(int x, int y, MoveBehaviour behaviour) {
+        super(x, y, behaviour);
     }
 
     @Override

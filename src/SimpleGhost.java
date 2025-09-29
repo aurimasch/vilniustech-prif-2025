@@ -1,19 +1,8 @@
 public class SimpleGhost extends Ghost {
 
-    public SimpleGhost(int x, int y) {
-        super(x, y);
+    public SimpleGhost(int x, int y, MoveBehaviour behaviour) {
+        super(x, y, behaviour);
     }
 
-    @Override
-    public void changeDirection() {
-        int temp = dx;
-        dx = dy;
-        dy = -temp;
-    }
 
-    @Override
-    public void move() {
-        x += dx;
-        y += dy;
-    }
 }

@@ -4,7 +4,12 @@ import java.util.List;
 public class Main {
 
     Pacman pacman = new Pacman(1, 1);
-    List<Ghost> ghosts = List.of(new SimpleGhost(10, 10), new SmartGhost(11, 11), new StaticGhost(5, 5));
+
+    Ghost simpleGhost = new SimpleGhost(10, 10, new NormalMoveBehaviour());
+    Ghost smartGhost = new SmartGhost(12, 12, new FastMoveBehaviour());
+    Ghost staticGhost = new StaticGhost(5, 5, new NoMoveBehaviour());
+
+    List<Ghost> ghosts = List.of(simpleGhost, smartGhost, staticGhost);
     Map map = new Map();
 
     GameRules gameRules = new GameRules(map, ghosts, pacman);
