@@ -1,4 +1,4 @@
-public class Map {
+public class Map implements ConsoleRenderable{
 
     private int[][] model = {
             {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,},
@@ -30,4 +30,11 @@ public class Map {
         return model[x][y] == 1;
     }
 
+    @Override
+    public void render(int i, int j) {
+        if (isWall(i, j))
+            System.out.print("#");
+        else
+            System.out.print(" ");
+    }
 }

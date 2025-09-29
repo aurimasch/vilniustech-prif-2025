@@ -13,7 +13,7 @@ public class Main {
     Map map = new Map();
 
     GameRules gameRules = new GameRules(map, ghosts, pacman);
-    GameRenderer gameRenderer = new GameRenderer(map, ghosts, pacman);
+    GameRenderer gameRenderer = new GameRenderer(map.getHeight(), map.getWidth(), List.of(map, pacman, simpleGhost, smartGhost, staticGhost));
 
 
     public static void main(String[] args) throws IOException {

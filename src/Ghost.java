@@ -1,4 +1,4 @@
-public abstract class Ghost {
+public abstract class Ghost implements ConsoleRenderable {
 
     protected int x = 10;
     protected int y = 10;
@@ -40,6 +40,12 @@ public abstract class Ghost {
 
     public int getMoveDistance() {
         return 1;
+    }
+
+    @Override
+    public void render(int i, int j) {
+        if (i == getX() && j == getY())
+            System.out.print("G");
     }
 
     public Ghost setX(int x) {

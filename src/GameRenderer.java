@@ -2,31 +2,23 @@ import java.util.List;
 
 public class GameRenderer {
 
-    private Map map;
-    private List<Ghost> ghosts;
-    private Pacman pacman;
+    private int height;
+    private int width;
+    private List<ConsoleRenderable> renderables;
 
-    public GameRenderer(Map map, List<Ghost> ghosts, Pacman pacman) {
-        this.map = map;
-        this.ghosts = ghosts;
-        this.pacman = pacman;
+    public GameRenderer(int height, int width, List<ConsoleRenderable> renderables) {
+        this.height = height;
+        this.width = width;
+        this.renderables = renderables;
     }
 
     public void render() {
-        for (int i = 0; i < map.getHeight(); i++) {
-            for (int j = 0; j < map.getWidth(); j++) {
-                if (map.isWall(i, j))
-                    System.out.print("#");
-                else
-                    System.out.print(" ");
-
-                if (i == pacman.getX() && j == pacman.getY())
-                    System.out.print("C");
-
-                for (Ghost ghost : ghosts)
-                    if (i == ghost.getX() && j == ghost.getY())
-                        System.out.print("G");
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                for (ConsoleRenderable renderable : renderables)
+                    renderable.render(i, j);
             }
+
             System.out.println();
         }
     }

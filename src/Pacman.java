@@ -1,4 +1,4 @@
-public class Pacman {
+public class Pacman implements ConsoleRenderable {
 
     private int x = 1;
     private int y = 1;
@@ -34,5 +34,11 @@ public class Pacman {
 
     public boolean collidesWith(Ghost ghost) {
         return this.x == ghost.getX() && this.y == ghost.getY();
+    }
+
+    @Override
+    public void render(int i, int j) {
+        if (i == getX() && j == getY())
+            System.out.print("C");
     }
 }
