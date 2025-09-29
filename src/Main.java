@@ -3,16 +3,19 @@ import java.util.List;
 
 public class Main {
 
-    static Pacman pacman = new Pacman(1, 1);
-    static List<Ghost> ghost = List.of(new Ghost(10, 10));
-    static Map map = new Map();
+    Pacman pacman = new Pacman(1, 1);
+    List<Ghost> ghosts = List.of(new SimpleGhost(10, 10), new SmartGhost(11, 11));
+    Map map = new Map();
 
-    static GameRules gameRules = new GameRules(map, ghost, pacman);
-    static GameRenderer gameRenderer = new GameRenderer(map, ghost, pacman);
+    GameRules gameRules = new GameRules(map, ghosts, pacman);
+    GameRenderer gameRenderer = new GameRenderer(map, ghosts, pacman);
 
 
     public static void main(String[] args) throws IOException {
+        new Main().run();
+    }
 
+    public void run() throws IOException {
         while (true) {
             gameRenderer.render();
 
@@ -23,7 +26,6 @@ public class Main {
             gameRules.processUserInput(read);
             gameRules.progressFrame();
         }
-
     }
 
     private static Integer getUserInput() throws IOException {

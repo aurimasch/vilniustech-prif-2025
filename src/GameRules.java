@@ -25,10 +25,16 @@ public class GameRules {
 
     public void progressFrame() {
         for (Ghost ghost : ghosts) {
-            if (map.isWall(ghost.getNextX(), ghost.getNextY())) {
+            // Try to find a valid direction if facing a wall
+            int attempts = 0;
+            while (map.isWall(ghost.getNextX(), ghost.getNextY()) && attempts < 4) {
                 ghost.changeDirection();
+                attempts++;
             }
-            ghost.move();
+            // Only move if the next cell is not a wall
+            if (!map.isWall(ghost.getNextX(), ghost.getNextY())) {
+                ghost.move();
+            }
 
             if (pacman.collidesWith(ghost)) {
                 System.out.println("Game Over!");

@@ -1,10 +1,10 @@
-public class Ghost {
+public abstract class Ghost {
 
-    private int x = 10;
-    private int y = 10;
+    protected int x = 10;
+    protected int y = 10;
 
-    private int dx = 0;
-    private int dy = 1;
+    protected int dx = 0;
+    protected int dy = 1;
 
     public Ghost(int x, int y) {
         this.x = x;
@@ -27,11 +27,7 @@ public class Ghost {
         return y + dy;
     }
 
-    public void changeDirection() {
-        int temp = dx;
-        dx = dy;
-        dy = -temp;
-    }
+    public abstract void changeDirection();
 
     public void move() {
         x += dx;
