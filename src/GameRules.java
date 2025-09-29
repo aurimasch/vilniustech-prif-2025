@@ -53,6 +53,18 @@ public class GameRules {
                 System.out.println("Game Over!");
                 System.exit(0);
             }
+
+            if (pacman.getSteps() >= 20)
+                changeStaticGhostsToFast();
+
+        }
+    }
+
+    private void changeStaticGhostsToFast() {
+        for (Ghost ghost : ghosts) {
+            if (ghost.getMoveBehaviour() instanceof NoMoveBehaviour) {
+                ghost.setMoveBehaviour(new FastMoveBehaviour());
+            }
         }
     }
 }

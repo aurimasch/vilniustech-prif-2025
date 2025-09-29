@@ -75,4 +75,13 @@ public abstract class Ghost implements ConsoleRenderable {
         this.dy = dy;
         return this;
     }
+
+    public MoveBehaviour getMoveBehaviour() {
+        return moveBehaviour;
+    }
+
+    public Ghost setMoveBehaviour(MoveBehaviour moveBehaviour) {
+        this.moveBehaviour = moveBehaviour;
+        return this;
+    }
 }

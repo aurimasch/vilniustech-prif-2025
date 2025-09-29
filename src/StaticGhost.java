@@ -4,13 +4,4 @@ public class StaticGhost extends Ghost {
         super(x, y, behaviour);
     }
 
-    @Override
-    public void changeDirection() {
-        //ignore
-    }
-
-    @Override
-    public void move() {
-        //ignore
-    }
 }
