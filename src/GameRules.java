@@ -1,12 +1,14 @@
+import java.util.List;
+
 public class GameRules {
 
     private Map map;
-    private Ghost ghost;
+    private List<Ghost> ghosts;
     private Pacman pacman;
 
-    public GameRules(Map map, Ghost ghost, Pacman pacman) {
+    public GameRules(Map map, List<Ghost> ghosts, Pacman pacman) {
         this.map = map;
-        this.ghost = ghost;
+        this.ghosts = ghosts;
         this.pacman = pacman;
     }
 
@@ -22,14 +24,17 @@ public class GameRules {
     }
 
     public void progressFrame() {
-        if (map.isWall(ghost.getNextX(), ghost.getNextY())) {
-            ghost.changeDirection();
-        }
-        ghost.move();
+        for (Ghost ghost : ghosts) {
+            if (map.isWall(ghost.getNextX(), ghost.getNextY())) {
+                ghost.changeDirection();
+            }
+            ghost.move();
 
-        if (pacman.collidesWith(ghost)) {
-            System.out.println("Game Over!");
-            System.exit(0);
+            if (pacman.collidesWith(ghost)) {
+                System.out.println("Game Over!");
+                System.exit(0);
+            }
         }
+
     }
 }

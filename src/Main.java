@@ -1,9 +1,10 @@
 import java.io.IOException;
+import java.util.List;
 
 public class Main {
 
     static Pacman pacman = new Pacman(1, 1);
-    static Ghost ghost = new Ghost(10, 10);
+    static List<Ghost> ghost = List.of(new Ghost(10, 10));
     static Map map = new Map();
 
     static GameRules gameRules = new GameRules(map, ghost, pacman);

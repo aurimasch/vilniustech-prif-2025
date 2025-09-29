@@ -5,14 +5,15 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
 
 public class WindowsMain extends JFrame {
 
     private Map map = new Map();
-    private Ghost ghost = new Ghost(10, 10);
+    private List<Ghost> ghosts = List.of(new Ghost(10, 10));
     private Pacman pacman = new Pacman(1, 1);
 
-    private GameRules gameRules = new GameRules(map, ghost, pacman);
+    private GameRules gameRules = new GameRules(map, ghosts, pacman);
 
     private WindowsRenderer windowsRenderer;
 
@@ -22,7 +23,7 @@ public class WindowsMain extends JFrame {
         super.setVisible(true);
         super.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        windowsRenderer =  new WindowsRenderer(map, ghost, pacman);
+        windowsRenderer =  new WindowsRenderer(map, ghosts, pacman);
 
         super.addKeyListener(new KeyListener() {
 
